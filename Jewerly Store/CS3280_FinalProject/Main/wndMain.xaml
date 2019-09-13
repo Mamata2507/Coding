@@ -1,0 +1,122 @@
+﻿<Controls:MetroWindow x:Class="CS3280_FinalProject.wndMain"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Jewelry Store Invoice System"
+                      ResizeMode="NoResize"
+                      WindowStartupLocation="CenterScreen"
+                      Height="510"
+                      Width="850">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10,15" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <DockPanel>
+                <Menu DockPanel.Dock="Top" 
+                      BorderBrush="DarkGray"
+                      BorderThickness="0,0,0,1">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="_Update Def Table"
+                                  Click="UpdateDefTable_Click" />
+                        <Separator />
+                        <MenuItem Header="_Search for Invoice"
+                                  Click="Search_Click" />
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <Grid Height="452">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="0"
+                            Grid.Row="0">
+                    <!--<Button Name="SearchForInvoiceBtn"
+                            Content=" Search for Invoice " />-->
+                </StackPanel>
+                <DataGrid Name="InvoiceDataGrid"
+                          Grid.Column="0"
+                          Grid.Row="0"
+                          Grid.RowSpan="2"
+                          Margin="10"
+                          CanUserAddRows="false"
+                          BorderThickness="1"
+                          BorderBrush="LightGray">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="EditButton_Click"
+                                            Style="{StaticResource AccentedSquareButtonStyle}">Edit</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="DeleteButton_Click"
+                                            Style="{StaticResource AccentedSquareButtonStyle}">Delete</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            HorizontalAlignment="Center">
+                    <Button Name="NewInvoiceBtn"
+                            Style="{StaticResource AccentedSquareButtonStyle}"
+                            MaxHeight="35"
+                            Content=" New Invoice "
+                            Click="NewInvoiceBtn_Click" />
+                </StackPanel>
+                <StackPanel Name="AddInvoiceSp"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="10"
+                            HorizontalAlignment="Center"
+                            Visibility="Hidden">
+                    <Label Name="InvoiceAddEditLbl"
+                           Content="Add Invoice"
+                           HorizontalContentAlignment="Center"
+                           Background="WhiteSmoke"
+                           FontWeight="Bold"
+                           FontSize="15" />
+                    <Label Name="InvoiceNumLbl"
+                           Content="Invoice Num: TBD"
+                           HorizontalContentAlignment="Center" />
+                    <DatePicker Name="NewDate"
+                                Margin="0,10,0,15" />
+                    <ListBox Name="ListBox1"
+                             MaxHeight="200">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}"
+                                          Content="{Binding ItemName}"
+                                          Unchecked="CheckBox_CheckedChanged"
+                                          Checked="CheckBox_CheckedChanged" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Name="TotalCostLbl"
+                           Content="Total Cost: "
+                           HorizontalContentAlignment="Center" />
+                    <Button Name="AddInvoice"
+                            Content="Add Invoice"
+                            Click="AddInvoice_Click"
+                            Style="{StaticResource AccentedSquareButtonStyle}" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

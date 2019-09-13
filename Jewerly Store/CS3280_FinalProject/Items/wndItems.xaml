@@ -1,0 +1,98 @@
+<Controls:MetroWindow x:Class="CS3280_FinalProject.wndItems"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:local="clr-namespace:CS3280_FinalProject"
+                      mc:Ignorable="d"
+                      Title="Jewelry Store - Update"
+                      Height="450"
+                      Width="800">
+
+    <Grid>
+        <DataGrid x:Name="grItemDesc"
+                  HorizontalAlignment="Left"
+                  Height="368"
+                  Margin="10,41,0,0"
+                  VerticalAlignment="Top"
+                  Width="613">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="EditButton_Click"
+                                    Style="{StaticResource AccentedSquareButtonStyle}">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteButton_Click"
+                                    Style="{StaticResource AccentedSquareButtonStyle}">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<ComboBox x:Name="comBoxItems"
+                  HorizontalAlignment="Left"
+                  Margin="39,76,0,0"
+                  VerticalAlignment="Top"
+                  Width="431" />-->
+        <Label Content="Items Descreptions"
+               HorizontalAlignment="Left"
+               Margin="10,10,0,0"
+               VerticalAlignment="Top"
+               Width="245" />
+        <!--<ListView x:Name="listItemDesc"
+                  HorizontalAlignment="Left"
+                  Height="23"
+                  Margin="39,314,0,0"
+                  VerticalAlignment="Top"
+                  Width="428">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+        <StackPanel HorizontalAlignment="Center"
+                    Margin="630,9,0,380">
+            <Button Name="NewItemButton"
+                    Style="{StaticResource AccentedSquareButtonStyle}"
+                    MaxHeight="35"
+                    Content=" New Item "
+                    Click="NewItemButton_Click" />
+        </StackPanel>
+        <StackPanel Name="AddItemSp"
+                    Margin="628,55,0,19"
+                    HorizontalAlignment="Center"
+                    Visibility="Hidden">
+            <Label Name="ItemAddEditLbl"
+                   Content="Add Item"
+                   HorizontalContentAlignment="Center"
+                   Background="WhiteSmoke"
+                   FontWeight="Bold"
+                   FontSize="15" />
+            <Label Name="ItemNumLbl"
+                   Content="Item Code: TBD"
+                   HorizontalContentAlignment="Center" />
+            <Label Name="ItemDescLbl"
+                   Content="Item Desc: "
+                   HorizontalContentAlignment="Center" />
+            <TextBox Name="ItemDescTxtBox"
+                     HorizontalContentAlignment="Center" />
+            <Label Name="TotalCostLbl"
+                   Content="Total Cost: "
+                   HorizontalContentAlignment="Center" />
+            <TextBox Name="TotalCostTxtBox"
+                     HorizontalContentAlignment="Center" />
+            <Button Name="AddItem"
+                    Content="Add Item"
+                    Click="AddItem_Click"
+                    Style="{StaticResource AccentedSquareButtonStyle}" />
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

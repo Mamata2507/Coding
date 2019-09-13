@@ -1,0 +1,30 @@
+﻿<Controls:MetroWindow x:Class="CS3280_FinalProject.wndSearch"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:local="clr-namespace:CS3280_FinalProject"
+                      mc:Ignorable="d"
+                      Title="Jewelry Store - Search"
+                      Height="450"
+                      Width="800">
+    <Grid>
+        <DataGrid Name="InvoiceDataGrid"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Margin="10,41,9.6,50"
+                  CanUserAddRows="false"
+                  BorderThickness="1"
+                  BorderBrush="LightGray"/>
+        <ComboBox x:Name="total" HorizontalAlignment="Left" Margin="601,10,0,0" VerticalAlignment="Top" Width="155" SelectionChanged="Total_SelectionChanged" />
+        <Label Content="Total:" HorizontalAlignment="Left" Margin="553,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="invoice" HorizontalAlignment="Left" Margin="67,13,0,0" VerticalAlignment="Top" Width="136" SelectionChanged="Invoice_SelectionChanged" />
+        <Label Content="Invoice:: " HorizontalAlignment="Left" Margin="13,13,0,0" VerticalAlignment="Top" Width="49"/>
+        <Label Content="Date: " HorizontalAlignment="Left" Margin="278,13,0,0" VerticalAlignment="Top" Width="49"/>
+        <ComboBox x:Name="dateOptions" HorizontalAlignment="Left" Margin="332,13,0,0" VerticalAlignment="Top" Width="136" SelectionChanged="DateOptions_SelectionChanged" />
+        <Button Content="Select" HorizontalAlignment="Left" Margin="85,375,0,0" VerticalAlignment="Top" Width="118" Height="35" Click="submit_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="553,375,0,0" VerticalAlignment="Top" Width="118" Height="35" Click="cancel_Click"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="307,375,0,0" VerticalAlignment="Top" Width="118" Height="35" Click="clear_Click"/>
+    </Grid>
+</Controls:MetroWindow>
